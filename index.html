@@ -4,12 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=0.8, minimum-scale=0.5, maximum-scale=2.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nicole</title>
     <link rel="icon" href="./images/003.jpg" />
     <style>
-        html {
+        /* 重置默认的外边距和内边距 */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
             height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            /* 隐藏水平滚动条 */
         }
 
         body {
@@ -56,6 +63,8 @@
         .box img {
             opacity: 0.4;
             width: 100%;
+            max-width: 100%;
+            /* 确保图片不会超出父元素宽度 */
         }
 
         /* 爱心 */
@@ -66,7 +75,8 @@
             transform: translate(-50%, -50%);
             z-index: 1;
             display: grid;
-            grid-template-columns: repeat(11, 8vh);
+            grid-template-columns: repeat(11, minmax(0, 8vh));
+            /* 调整列宽，确保不会超出视口 */
             grid-auto-rows: 8vh;
             gap: 2px;
         }
@@ -362,9 +372,9 @@
             $heroB.attr("src", storedImage);
             $heroC.attr("src", storedImage);
         } else {
-            $heroA.attr("src", "./04.webp");
-            $heroB.attr("src", "./04.webp");
-            $heroC.attr("src", "./04.webp");
+            $heroA.attr("src", "./images/04.webp");
+            $heroB.attr("src", "./images/04.webp");
+            $heroC.attr("src", "./images/04.webp");
         }
 
         // 生成随机浅色系颜色的函数
